@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmes - Agence de Promotion des Investissements</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <div class="background-overlay"></div>
+    
+    <div class="main-container">
+        <header class="animate__animated animate__fadeIn">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo API" class="logo">
+            </div>
+            <div class="header-content">
+                <h1>Agence de Promotion des Investissements</h1>
+                <p class="date" id="currentDate"></p>
+            </div>
+        </header>
+
+        <main class="content-grid">
+            <section class="programme-section animate__animated animate__fadeInUp">
+                <div class="timeline">
+                    <div class="timeline-item" 
+                         data-time="09:00" 
+                         data-description="Réunion d'ouverture pour présenter les objectifs et les opportunités d'investissement. Nous accueillons aujourd'hui des investisseurs du monde entier pour découvrir les projets innovants de notre région."
+                         data-participants='["M. Thomas DUBOIS - Directeur Général", "Mme Sophie MARTIN - Directrice des Investissements", "M. Jean LAURENT - Responsable Relations Internationales", "M. Pierre DUPONT - Analyste Senior"]'
+                         data-room="Salle de Conférence Principale - 2ème étage"
+                         data-subject="Présentation des Opportunités d'Investissement 2025">
+                        <div class="time">09:00</div>
+                        <div class="event">
+                            <div class="event-image">
+                                <img src="projet.jpg" alt="Présentation projet">
+                            </div>
+                            <div class="event-content">
+                                <h3>Réunion d'Ouverture</h3>
+                                <p>Présentation des objectifs et des opportunités d'investissement</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" 
+                         data-time="10:30" 
+                         data-description="Session de networking permettant aux investisseurs de rencontrer nos experts et de discuter des différentes opportunités d'investissement dans les secteurs clés de notre économie."
+                         data-participants='["Mme Marie BERNARD - Responsable Networking", "M. Alexandre PETIT - Expert Secteur Énergie", "Mme Claire DUBOIS - Experte Secteur Agriculture", "M. Nicolas MARTIN - Expert Secteur Technologies"]'
+                         data-room="Espace Business Lounge - RDC"
+                         data-subject="Networking & Échanges Sectoriels">
+                        <div class="time">10:30</div>
+                        <div class="event">
+                            <div class="event-image">
+                                <img src="finance.jpg" alt="Networking">
+                            </div>
+                            <div class="event-content">
+                                <h3>Session de Networking</h3>
+                                <p>Rencontre avec les investisseurs potentiels</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" 
+                         data-time="14:00" 
+                         data-description="Présentation détaillée des projets d'investissement prioritaires dans les secteurs de l'énergie, de la technologie et de l'agriculture."
+                         data-participants='["M. Philippe ROUSSEAU - Chef de Projets", "Mme Sarah LEROY - Analyste Financier", "M. David MOREAU - Expert Technique", "Mme Julie LAMBERT - Coordinatrice de Projets"]'
+                         data-room="Salles de Réunion A & B - 1er étage"
+                         data-subject="Présentation des Projets Prioritaires">
+                        <div class="time">14:00</div>
+                        <div class="event">
+                            <div class="event-image">
+                                <img src="technologie.jpg" alt="Projets technologiques">
+                            </div>
+                            <div class="event-content">
+                                <h3>Présentation des Projets</h3>
+                                <p>Démonstration des projets d'investissement prioritaires</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" 
+                         data-time="16:00" 
+                         data-description="Table ronde sur les perspectives économiques avec nos experts et analystes. Discussion approfondie sur les tendances du marché et les opportunités à venir."
+                         data-participants='["Dr. Michel ROBERT - Économiste en Chef", "Mme Anne DUPUIS - Stratégiste Senior", "M. François LECLERC - Analyste Marché", "Mme Catherine BLANC - Experte Relations Internationales"]'
+                         data-room="Salle du Conseil - 3ème étage"
+                         data-subject="Table Ronde : Perspectives Économiques 2025-2026">
+                        <div class="time">16:00</div>
+                        <div class="event">
+                            <div class="event-image">
+                                <img src="loi.jpg" alt="Table ronde">
+                            </div>
+                            <div class="event-content">
+                                <h3>Table Ronde</h3>
+                                <p>Discussion sur les perspectives économiques</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="sector-images">
+                <div class="sector-grid">
+                    <img src="energie.jpg" alt="Secteur énergie" class="sector-image">
+                    <img src="technologie.jpg" alt="Secteur technologie" class="sector-image">
+                    <img src="agriculture.jpg" alt="Secteur agriculture" class="sector-image">
+                    <img src="construction.jpg" alt="Secteur construction" class="sector-image">
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <div id="current-event-overlay" class="hidden">
+        <h2>En ce moment</h2>
+        <div id="current-event-content"></div>
+    </div>
+
+    <div id="ticker-wrapper">
+        <div id="ticker">
+            <div id="ticker-content"></div>
+        </div>
+    </div>
+
+    <div id="participants-modal" class="modal hidden">
+        <div class="modal-content animate__animated">
+            <h2 class="meeting-title"></h2>
+            <div class="meeting-info">
+                <div class="meeting-room"></div>
+                <div class="meeting-subject"></div>
+            </div>
+            <div class="participants-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
