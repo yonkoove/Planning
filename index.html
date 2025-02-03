@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programme - Agence de Promotion des Investissements</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box; /* S'assure que padding et bordures sont inclus dans la largeur */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
             color: #333;
             position: relative;
-            font-size: 22px; /* Taille de police par défaut augmentée pour une meilleure visibilité */
+            font-size: 22px; /* Taille de police par défaut */
+            overflow-x: hidden; /* Empêche l'apparition d'une barre de défilement horizontale */
         }
 
         /* Image de fond, légèrement plus visible */
@@ -34,100 +39,98 @@
             padding: 40px;
             background-color: rgba(255, 255, 255, 0.7); /* Fond semi-transparent pour un meilleur contraste */
             border-radius: 10px;
-            max-width: 100%; /* Utiliser toute la largeur disponible */
+            width: 100%; /* Utiliser toute la largeur disponible */
+            max-width: 100%; /* Empêche de dépasser la largeur de l'écran */
             margin: auto;
+            box-sizing: border-box;
         }
 
-        /* Zone pour le logo */
         .logo {
             text-align: center;
-            margin-bottom: 60px; /* Augmenter l'espacement autour du logo */
+            margin-bottom: 60px;
         }
 
         .logo img {
-            width: 300px; /* Augmenter la taille du logo pour mieux le voir sur une TV */
+            width: 300px;
             height: auto;
         }
 
         header {
             text-align: center;
-            margin-bottom: 40px; /* Augmenter l'espacement sous l'en-tête */
+            margin-bottom: 40px;
             background-color: #007BFF;
             color: white;
-            padding: 30px 0; /* Augmenter le padding */
+            padding: 30px 0;
             border-radius: 10px;
         }
 
         h1 {
-            font-size: 48px; /* Augmenter la taille de titre principal */
+            font-size: 48px;
             margin: 0;
         }
 
         h2 {
-            font-size: 24px; /* Augmenter la taille de sous-titre */
+            font-size: 24px;
             margin-top: 5px;
         }
 
         .time-date {
             color: white;
-            font-size: 22px; /* Augmenter la taille de l'heure et de la date */
+            font-size: 22px;
         }
 
         .timeline {
             display: flex;
-            flex-direction: row; /* Disposition horizontale */
-            gap: 40px; /* Augmenter l'espacement entre les éléments */
+            flex-direction: column; /* Disposition verticale pour éviter les débordements horizontaux */
+            gap: 40px;
             justify-content: center;
-            padding: 30px 0; /* Augmenter le padding */
-            flex-wrap: nowrap; /* Pas de retour à la ligne, zone longitudinale */
-            overflow-x: auto; /* Permet de faire défiler horizontalement */
+            padding: 30px 0;
+            overflow-x: hidden; /* Empêche le défilement horizontal */
         }
 
         .timeline-item {
             background: white;
-            padding: 40px 60px; /* Augmenter le padding sur les côtés pour que le texte ne touche pas les bords */
+            padding: 40px 60px;
             border-left: 5px solid #007BFF;
             position: relative;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-            width: 100vw; /* Largeur égale à la largeur de la fenêtre */
-            margin-left: -20px; /* Marge négative pour étirer l'élément vers la gauche */
-            margin-right: -20px; /* Marge négative pour étirer l'élément vers la droite */
-            flex-shrink: 0;
+            width: 100%; /* S'adapte à la largeur disponible */
+            max-width: 100%; /* Empêche l'élément de dépasser la largeur de l'écran */
             border-radius: 15px;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s forwards;
+            margin-bottom: 20px; /* Espacement entre les éléments */
         }
 
         .timeline-item .time {
-            font-size: 36px; /* Ajuster la taille de l'heure pour une meilleure lisibilité */
+            font-size: 36px;
             font-weight: bold;
             color: #007BFF;
             margin-bottom: 15px;
         }
 
         .timeline-item .event-content h3 {
-            font-size: 36px; /* Ajuster la taille du titre pour qu'il soit bien visible */
+            font-size: 36px;
             color: #333;
             margin-bottom: 20px;
         }
 
         .timeline-item .event-content p {
-            font-size: 24px; /* Ajuster la taille des paragraphes pour mieux s'adapter à la largeur */
+            font-size: 24px;
             color: #666;
-            line-height: 1.6; /* Améliorer la lisibilité en augmentant l'espacement entre les lignes */
+            line-height: 1.6;
             margin-bottom: 10px;
         }
 
         .footer {
             text-align: center;
-            margin-top: 70px; /* Augmenter l'espacement du bas */
+            margin-top: 70px;
             color: #007BFF;
-            padding: 30px 0; /* Augmenter le padding */
+            padding: 30px 0;
             background-color: #f4f4f4;
         }
 
-        /* Animation pour les éléments de la timeline qui apparaissent */
         @keyframes fadeInUp {
             to {
                 opacity: 1;
@@ -141,7 +144,7 @@
     <div class="content">
         <!-- Zone pour le logo -->
         <div class="logo">
-            <img src="logo.png" alt="Logo de l'entreprise"> <!-- Remplacez "logo.png" par le nom de votre logo -->
+            <img src="logo.png" alt="Logo de l'entreprise">
         </div>
 
         <header>
