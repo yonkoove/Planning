@@ -15,7 +15,7 @@
             font-family: Arial, sans-serif;
             color: #333;
             position: relative;
-            font-size: 16px; /* Taille de police fixe */
+            font-size: 18px; /* Taille de police légèrement augmentée */
             overflow-x: hidden;
         }
 
@@ -47,11 +47,11 @@
 
         .logo {
             text-align: center;
-            margin-bottom: 40px; /* Espacement fixe */
+            margin-bottom: 40px;
         }
 
         .logo img {
-            width: 150px; /* Largeur fixe du logo */
+            width: 180px; /* Ajustement de la taille du logo */
             height: auto;
         }
 
@@ -65,24 +65,24 @@
         }
 
         h1 {
-            font-size: 32px; /* Taille fixe du titre */
+            font-size: 36px; /* Taille du titre légèrement augmentée */
             margin: 0;
         }
 
         h2 {
-            font-size: 24px; /* Taille fixe du sous-titre */
+            font-size: 28px; /* Taille du sous-titre augmentée */
             margin-top: 10px;
         }
 
         .time-date {
             color: white;
-            font-size: 18px; /* Taille fixe pour la date et l'heure */
+            font-size: 20px; /* Taille de la date et heure un peu plus grande */
         }
 
         .timeline {
             display: flex;
             flex-direction: column;
-            gap: 20px; /* Espacement fixe entre les éléments */
+            gap: 30px; /* Espacement légèrement plus grand */
             justify-content: center;
             padding: 40px 0;
             overflow-x: hidden;
@@ -90,7 +90,7 @@
 
         .timeline-item {
             background: white;
-            padding: 30px 40px;
+            padding: 40px 50px;
             border-left: 5px solid #007BFF;
             position: relative;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
@@ -100,24 +100,24 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s forwards;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .timeline-item .time {
-            font-size: 20px; /* Taille fixe de l'heure */
+            font-size: 24px; /* Taille de l'heure augmentée */
             font-weight: bold;
             color: #007BFF;
             margin-bottom: 20px;
         }
 
         .timeline-item .event-content h3 {
-            font-size: 18px; /* Taille fixe du titre de l'événement */
+            font-size: 22px; /* Taille du titre de l'événement légèrement augmentée */
             color: #333;
             margin-bottom: 20px;
         }
 
         .timeline-item .event-content p {
-            font-size: 16px; /* Taille fixe des paragraphes */
+            font-size: 18px; /* Taille des paragraphes augmentée */
             color: #666;
             line-height: 1.6;
             margin-bottom: 20px;
@@ -141,34 +141,34 @@
         /* Media Query pour les petits écrans */
         @media (max-width: 768px) {
             body {
-                font-size: 18px; /* Taille de police plus grande sur les petits écrans */
+                font-size: 20px; /* Taille de police plus grande sur petits écrans */
             }
 
             h1 {
-                font-size: 36px; /* Plus grand pour les petits écrans */
+                font-size: 40px; /* Taille du titre plus grande */
             }
 
             .timeline-item {
-                padding: 40px 50px;
+                padding: 50px 60px;
             }
 
             .logo img {
-                width: 200px; /* Ajuste le logo sur petits écrans */
+                width: 220px; /* Ajuste la taille du logo sur petits écrans */
             }
         }
 
         /* Media Query pour les très petits écrans */
         @media (max-width: 480px) {
             body {
-                font-size: 20px; /* Taille de police encore plus grande */
+                font-size: 22px; /* Taille de police encore plus grande */
             }
 
             h1 {
-                font-size: 40px;
+                font-size: 44px; /* Plus grand pour les très petits écrans */
             }
 
             .logo img {
-                width: 250px; /* Logo encore plus grand sur de très petits écrans */
+                width: 250px; /* Logo plus grand */
             }
         }
     </style>
