@@ -10,9 +10,21 @@
             margin: 0;
             padding: 0;
             color: #333;
-            background: url('fond_utilisateur.jpg') no-repeat center center fixed;
+            position: relative; /* Pour positionner l'image de fond floutée */
+        }
+
+        /* Image de fond floutée */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('image/fond.jpg') no-repeat center center fixed;
             background-size: cover;
-            filter: blur(8px); /* Applique un flou à l'image de fond */
+            filter: blur(10px); /* Flou appliqué uniquement à l'image de fond */
+            z-index: -1; /* L'image floutée se place en arrière-plan */
         }
 
         .content {
