@@ -10,43 +10,84 @@
             background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
+            color: #333;
         }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #007BFF;
+            font-size: 36px;
+            margin: 0;
+        }
+
+        h2 {
+            color: #007BFF;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
+        .time-date {
+            color: #555;
+            font-size: 16px;
+        }
+
         .timeline {
             max-width: 800px;
             margin: auto;
+            padding: 10px;
         }
+
         .timeline-item {
             background: white;
             margin: 10px 0;
             padding: 15px;
             border-left: 5px solid #007BFF;
             position: relative;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
+
         .time {
             font-size: 18px;
             font-weight: bold;
             color: #007BFF;
         }
+
         .event-content h3 {
             margin: 0;
             color: #333;
+            font-size: 20px;
         }
+
         .event-content p {
             margin: 5px 0;
             color: #666;
+            font-size: 14px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #007BFF;
         }
     </style>
 </head>
 <body>
 
-    <h1 style="text-align: center;">Programme des Signatures</h1>
+    <header>
+        <h1>Programme des Signatures</h1>
+        <h2>Agence de Promotion des Investissements</h2>
+        <div class="time-date">
+            <span id="current-date"></span> | <span id="current-time"></span>
+        </div>
+    </header>
+
     <div class="timeline">
 
-        <!-- Activités déjà présentes dans ton code -->
-        <!-- Je laisse ici ton contenu existant, puis j'ajoute les nouvelles activités en bas -->
-
-        <!-- Nouvelle section ajoutée pour les nouvelles signatures -->
-        
+        <!-- Activité existante -->
         <div class="timeline-item">
             <div class="time">15:00</div>
             <div class="event-content">
@@ -56,8 +97,34 @@
             </div>
         </div>
 
-       
-
+        <!-- Ajoute plus d'activités ici -->
+        
     </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Agence de Promotion des Investissements</p>
+    </div>
+
+    <script>
+        // Script pour afficher l'heure et la date actuelles
+        const dateElement = document.getElementById('current-date');
+        const timeElement = document.getElementById('current-time');
+
+        function updateDateTime() {
+            const now = new Date();
+            const date = now.toLocaleDateString('fr-FR', {
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+            });
+            const time = now.toLocaleTimeString('fr-FR', {
+                hour: '2-digit', minute: '2-digit', second: '2-digit'
+            });
+
+            dateElement.textContent = date;
+            timeElement.textContent = time;
+        }
+
+        setInterval(updateDateTime, 1000);  // Met à jour chaque seconde
+    </script>
+
 </body>
 </html>
