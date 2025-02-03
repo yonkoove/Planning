@@ -14,7 +14,7 @@
             font-size: 22px; /* Taille de police par défaut augmentée pour une meilleure visibilité */
         }
 
-        /* Image de fond sans floutage */
+        /* Image de fond, légèrement plus visible */
         body::before {
             content: "";
             position: absolute;
@@ -25,13 +25,14 @@
             background: url('fond_utilisateur.jpg') no-repeat center center fixed;
             background-size: cover;
             z-index: -1; /* L'image se place en arrière-plan */
+            filter: brightness(80%); /* Diminuer légèrement la luminosité pour plus de contraste avec le texte */
         }
 
         .content {
             position: relative;
             z-index: 1;
             padding: 40px;
-            background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent pour le contraste */
+            background-color: rgba(255, 255, 255, 0.7); /* Fond semi-transparent pour un meilleur contraste */
             border-radius: 10px;
             max-width: 100%; /* Utiliser toute la largeur disponible */
             margin: auto;
@@ -88,7 +89,7 @@
             border-left: 5px solid #007BFF;
             position: relative;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-            width: 500px; /* Augmenter la largeur des éléments de la timeline */
+            width: 650px; /* Augmenter la largeur des éléments de la timeline pour les rendre plus larges */
             flex-shrink: 0;
             border-radius: 15px;
             opacity: 0;
