@@ -11,9 +11,10 @@
             padding: 0;
             color: #333;
             position: relative;
+            font-size: 22px; /* Taille de police par défaut augmentée pour une meilleure visibilité */
         }
 
-        /* Image de fond floutée */
+        /* Image de fond sans floutage */
         body::before {
             content: "";
             position: absolute;
@@ -23,72 +24,73 @@
             height: 100%;
             background: url('fond_utilisateur.jpg') no-repeat center center fixed;
             background-size: cover;
-            filter: blur(10px); /* Flou appliqué uniquement à l'image de fond */
-            z-index: -1; /* L'image floutée se place en arrière-plan */
+            z-index: -1; /* L'image se place en arrière-plan */
         }
 
         .content {
             position: relative;
             z-index: 1;
-            padding: 20px;
+            padding: 40px;
             background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent pour le contraste */
             border-radius: 10px;
-            max-width: 1200px;
+            max-width: 100%; /* Utiliser toute la largeur disponible */
             margin: auto;
         }
 
         /* Zone pour le logo */
         .logo {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 60px; /* Augmenter l'espacement autour du logo */
         }
 
         .logo img {
-            width: 200px; /* Dimension fixe pour le logo */
+            width: 300px; /* Augmenter la taille du logo pour mieux le voir sur une TV */
             height: auto;
         }
 
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px; /* Augmenter l'espacement sous l'en-tête */
             background-color: #007BFF;
             color: white;
-            padding: 20px 0;
+            padding: 30px 0; /* Augmenter le padding */
             border-radius: 10px;
         }
 
         h1 {
-            font-size: 36px;
+            font-size: 48px; /* Augmenter la taille de titre principal */
             margin: 0;
         }
 
         h2 {
-            font-size: 18px;
+            font-size: 24px; /* Augmenter la taille de sous-titre */
             margin-top: 5px;
         }
 
         .time-date {
             color: white;
-            font-size: 16px;
+            font-size: 22px; /* Augmenter la taille de l'heure et de la date */
         }
 
         .timeline {
             display: flex;
-            flex-wrap: wrap;
-            gap: 30px; /* Espace entre les éléments */
+            flex-direction: row; /* Disposition horizontale */
+            gap: 40px; /* Augmenter l'espacement entre les éléments */
             justify-content: center;
-            padding: 20px 0;
+            padding: 30px 0; /* Augmenter le padding */
+            flex-wrap: nowrap; /* Pas de retour à la ligne, zone longitudinale */
+            overflow-x: auto; /* Permet de faire défiler horizontalement */
         }
 
         .timeline-item {
             background: white;
-            padding: 30px;
+            padding: 40px; /* Augmenter le padding pour plus d'espace dans chaque élément */
             border-left: 5px solid #007BFF;
             position: relative;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            width: 300px; /* Largeur de chaque élément de la timeline */
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            width: 500px; /* Augmenter la largeur des éléments de la timeline */
             flex-shrink: 0;
-            border-radius: 10px;
+            border-radius: 15px;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s forwards;
@@ -103,30 +105,30 @@
         }
 
         .time {
-            font-size: 22px;
+            font-size: 28px; /* Augmenter la taille de l'heure */
             font-weight: bold;
             color: #007BFF;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .event-content h3 {
             margin: 0;
             color: #333;
-            font-size: 24px;
-            margin-bottom: 10px;
+            font-size: 32px; /* Augmenter la taille du titre des événements */
+            margin-bottom: 15px;
         }
 
         .event-content p {
-            margin: 5px 0;
+            margin: 10px 0;
             color: #666;
-            font-size: 16px;
+            font-size: 22px; /* Augmenter la taille de la description des événements */
         }
 
         .footer {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 70px; /* Augmenter l'espacement du bas */
             color: #007BFF;
-            padding: 20px 0;
+            padding: 30px 0; /* Augmenter le padding */
             background-color: #f4f4f4;
         }
 
@@ -137,7 +139,6 @@
                 transform: translateY(0);
             }
         }
-
     </style>
 </head>
 <body>
@@ -149,7 +150,7 @@
         </div>
 
         <header>
-            <h1>Programme des Signatures</h1>
+            <h1>Programme des Activités</h1>
             <h2>Agence de Promotion des Investissements</h2>
             <div class="time-date">
                 <span id="current-date"></span> | <span id="current-time"></span>
