@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             color: #333;
-            position: relative; /* Pour positionner l'image de fond floutée */
+            position: relative;
         }
 
         /* Image de fond floutée */
@@ -29,10 +29,23 @@
 
         .content {
             position: relative;
-            z-index: 1; /* S'assurer que le contenu est au-dessus du fond flouté */
+            z-index: 1;
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent pour le contraste */
             border-radius: 10px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Zone pour le logo */
+        .logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo img {
+            width: 200px; /* Dimension fixe pour le logo */
+            height: auto;
         }
 
         header {
@@ -61,14 +74,14 @@
 
         .timeline {
             display: flex;
-            overflow-x: auto;
-            white-space: nowrap;
-            padding: 10px 0;
+            flex-wrap: wrap;
+            gap: 30px; /* Espace entre les éléments */
+            justify-content: center;
+            padding: 20px 0;
         }
 
         .timeline-item {
             background: white;
-            margin: 0 15px;
             padding: 30px;
             border-left: 5px solid #007BFF;
             position: relative;
@@ -76,6 +89,17 @@
             width: 300px; /* Largeur de chaque élément de la timeline */
             flex-shrink: 0;
             border-radius: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .timeline-item:nth-child(odd) {
+            background-color: #e3f2fd; /* Bleu clair alterné */
+        }
+
+        .timeline-item:nth-child(even) {
+            background-color: #f1f8e9; /* Vert clair alterné */
         }
 
         .time {
@@ -106,24 +130,24 @@
             background-color: #f4f4f4;
         }
 
-        /* Animation de défilement horizontal des éléments */
-        @keyframes scroll {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
+        /* Animation pour les éléments de la timeline qui apparaissent */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        .timeline {
-            animation: scroll 60s linear infinite; /* Défilement lent, 60s pour un cycle complet */
-        }
     </style>
 </head>
 <body>
 
     <div class="content">
+        <!-- Zone pour le logo -->
+        <div class="logo">
+            <img src="image/logo.png" alt="Logo de l'entreprise"> <!-- Remplacez "logo.png" par le nom de votre logo -->
+        </div>
+
         <header>
             <h1>Programme des Signatures</h1>
             <h2>Agence de Promotion des Investissements</h2>
@@ -134,7 +158,7 @@
 
         <div class="timeline">
 
-            <!-- Activité existante -->
+            <!-- Activité 1 -->
             <div class="timeline-item">
                 <div class="time">15:00</div>
                 <div class="event-content">
@@ -144,8 +168,6 @@
                 </div>
             </div>
 
-            <!-- Ajoute plus d'activités ici -->
-            
         </div>
 
         <div class="footer">
