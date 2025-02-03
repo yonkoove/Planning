@@ -3,148 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robot Animé de Démarrage avec Bulle de Conversation</title>
+    <title>Programme - Agence de Promotion des Investissements</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            margin: 0;
             font-family: Arial, sans-serif;
-        }
-
-        .robot {
+            margin: 0;
+            padding: 0;
+            color: #333;
             position: relative;
-            width: 100px;
-            height: 160px;
-            background-color: #333;
-            border-radius: 10px 10px 20px 20px;
-            animation: startUp 3s forwards;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 10px;
+            font-size: 22px; /* Taille de police par défaut augmentée pour une meilleure visibilité */
         }
 
-        /* Corps du robot */
-        .robot::before {
+        /* Image de fond, légèrement plus visible */
+        body::before {
             content: "";
             position: absolute;
-            top: 10px;
-            left: 20px;
-            width: 60px;
-            height: 40px;
-            background-color: #ccc;
-            border-radius: 5px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('fond_utilisateur.jpg') no-repeat center center fixed;
+            background-size: cover;
+            z-index: -1; /* L'image se place en arrière-plan */
+            filter: brightness(80%); /* Diminuer légèrement la luminosité pour plus de contraste avec le texte */
         }
 
-        /* Tête du robot */
-        .head {
-            position: absolute;
-            top: -35px;
-            left: 10px;
-            width: 80px;
-            height: 40px;
-            background-color: #666;
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.7); /* Fond semi-transparent pour un meilleur contraste */
             border-radius: 10px;
-            opacity: 0;
-            animation: headAppear 1s forwards 2s;
+            max-width: 100%; /* Utiliser toute la largeur disponible */
+            margin: auto;
         }
 
-        /* Yeux du robot */
-        .eye {
-            position: absolute;
-            top: 10px;
-            width: 10px;
-            height: 10px;
-            background-color: #fff;
-            border-radius: 50%;
+        /* Zone pour le logo */
+        .logo {
+            text-align: center;
+            margin-bottom: 60px; /* Augmenter l'espacement autour du logo */
         }
 
-        .eye.left {
-            left: 15px;
+        .logo img {
+            width: 300px; /* Augmenter la taille du logo pour mieux le voir sur une TV */
+            height: auto;
         }
 
-        .eye.right {
-            right: 15px;
-        }
-
-        /* Bras du robot */
-        .arm {
-            position: absolute;
-            top: 40px;
-            width: 20px;
-            height: 50px;
-            background-color: #666;
-            border-radius: 10px;
-            opacity: 0;
-            animation: armAppear 1s forwards 2s;
-        }
-
-        .arm.left {
-            left: -25px;
-        }
-
-        .arm.right {
-            right: -25px;
-        }
-
-        /* Bulle de conversation */
-        .bubble {
-            position: absolute;
-            left: 120px;
-            top: 30px;
+        header {
+            text-align: center;
+            margin-bottom: 40px; /* Augmenter l'espacement sous l'en-tête */
             background-color: #007BFF;
             color: white;
+            padding: 30px 0; /* Augmenter le padding */
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 48px; /* Augmenter la taille de titre principal */
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 24px; /* Augmenter la taille de sous-titre */
+            margin-top: 5px;
+        }
+
+        .time-date {
+            color: white;
+            font-size: 22px; /* Augmenter la taille de l'heure et de la date */
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: row; /* Disposition horizontale */
+            gap: 40px; /* Augmenter l'espacement entre les éléments */
+            justify-content: center;
+            padding: 30px 0; /* Augmenter le padding */
+            flex-wrap: nowrap; /* Pas de retour à la ligne, zone longitudinale */
+            overflow-x: auto; /* Permet de faire défiler horizontalement */
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 40px; /* Augmenter le padding pour plus d'espace dans chaque élément */
+            border-left: 5px solid #007BFF;
+            position: relative;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            width: 650px; /* Augmenter la largeur des éléments de la timeline pour les rendre plus larges */
+            flex-shrink: 0;
             border-radius: 15px;
-            padding: 15px;
-            max-width: 200px;
-            font-size: 16px;
             opacity: 0;
-            animation: bubbleAppear 2s forwards 3s;
-            transform: scale(0.8);
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
         }
 
-        .bubble::after {
-            content: "";
-            position: absolute;
-            left: -10px;
-            top: 20px;
-            border-width: 10px;
-            border-style: solid;
-            border-color: transparent #007BFF transparent transparent;
+        .timeline-item:nth-child(odd) {
+            background-color: #e3f2fd; /* Bleu clair alterné */
         }
 
-        /* Animation du démarrage */
-        @keyframes startUp {
-            0% {
-                transform: scale(0);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-            100% {
-                transform: scale(1);
-            }
+        .timeline-item:nth-child(even) {
+            background-color: #f1f8e9; /* Vert clair alterné */
         }
 
-        /* Animation de l'apparition de la tête */
-        @keyframes headAppear {
-            0% {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            100% {
+        .time {
+            font-size: 28px; /* Augmenter la taille de l'heure */
+            font-weight: bold;
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        .event-content h3 {
+            margin: 0;
+            color: #333;
+            font-size: 32px; /* Augmenter la taille du titre des événements */
+            margin-bottom: 15px;
+        }
+
+        .event-content p {
+            margin: 10px 0;
+            color: #666;
+            font-size: 22px; /* Augmenter la taille de la description des événements */
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 70px; /* Augmenter l'espacement du bas */
+            color: #007BFF;
+            padding: 30px 0; /* Augmenter le padding */
+            background-color: #f4f4f4;
+        }
+
+        /* Animation pour les éléments de la timeline qui apparaissent */
+        @keyframes fadeInUp {
+            to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+    </style>
+</head>
+<body>
 
-        /* Animation de l'apparition des bras */
-        @keyframes armAppear {
-            0% {
-                opacity: 0;
-                transform: translateY(-20px);
-        
+    <div class="content">
+        <!-- Zone pour le logo -->
+        <div class="logo">
+            <img src="logo.png" alt="Logo de l'entreprise"> <!-- Remplacez "logo.png" par le nom de votre logo -->
+        </div>
+
+        <header>
+            <h1>Programme des Activités</h1>
+            <h2>Agence de Promotion des Investissements</h2>
+            <div class="time-date">
+                <span id="current-date"></span> | <span id="current-time"></span>
+            </div>
+        </header>
+
+        <div class="timeline">
+
+            <!-- Activité 1 -->
+            <div class="timeline-item">
+                <div class="time">15:00</div>
+                <div class="event-content">
+                    <h3>Séance de Travail</h3>
+                    <p>Lieu : Salle de Conférence, Nouvelle Route Bastos, Yaoundé</p>
+                    <p>Participants : Monsieur le Directeur Général de l'API, Monsieur le Sous-Directeur des Affaires Générales, Quelques Membres du Service Financier.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Agence de Promotion des Investissements</p>
+        </div>
+    </div>
+
+    <script>
+        // Script pour afficher l'heure et la date actuelles
+        const dateElement = document.getElementById('current-date');
+        const timeElement = document.getElementById('current-time');
+
+        function updateDateTime() {
+            const now = new Date();
+            const date = now.toLocaleDateString('fr-FR', {
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+            });
+            const time = now.toLocaleTimeString('fr-FR', {
+                hour: '2-digit', minute: '2-digit', second: '2-digit'
+            });
+
+            dateElement.textContent = date;
+            timeElement.textContent = time;
+        }
+
+        setInterval(updateDateTime, 1000);  // Met à jour chaque seconde
+    </script>
+
+</body>
+</html>
