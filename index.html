@@ -84,49 +84,39 @@
         }
 
         .timeline-item {
-    background: white;
-    padding: 40px; /* Augmenter le padding si nécessaire */
-    border-left: 5px solid #007BFF;
-    position: relative;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    width: 100vw; /* La largeur est maintenant égale à la largeur de la fenêtre */
-    margin-left: -20px; /* Marge négative pour étirer l'élément vers la gauche */
-    margin-right: -20px; /* Marge négative pour étirer l'élément vers la droite */
-    flex-shrink: 0;
-    border-radius: 15px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s forwards;
-}
-
-
-
-        .timeline-item:nth-child(odd) {
-            background-color: #e3f2fd; /* Bleu clair alterné */
+            background: white;
+            padding: 40px 60px; /* Augmenter le padding sur les côtés pour que le texte ne touche pas les bords */
+            border-left: 5px solid #007BFF;
+            position: relative;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            width: 100vw; /* Largeur égale à la largeur de la fenêtre */
+            margin-left: -20px; /* Marge négative pour étirer l'élément vers la gauche */
+            margin-right: -20px; /* Marge négative pour étirer l'élément vers la droite */
+            flex-shrink: 0;
+            border-radius: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
         }
 
-        .timeline-item:nth-child(even) {
-            background-color: #f1f8e9; /* Vert clair alterné */
-        }
-
-        .time {
-            font-size: 28px; /* Augmenter la taille de l'heure */
+        .timeline-item .time {
+            font-size: 36px; /* Ajuster la taille de l'heure pour une meilleure lisibilité */
             font-weight: bold;
             color: #007BFF;
-            margin-bottom: 20px;
-        }
-
-        .event-content h3 {
-            margin: 0;
-            color: #333;
-            font-size: 32px; /* Augmenter la taille du titre des événements */
             margin-bottom: 15px;
         }
 
-        .event-content p {
-            margin: 10px 0;
+        .timeline-item .event-content h3 {
+            font-size: 36px; /* Ajuster la taille du titre pour qu'il soit bien visible */
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item .event-content p {
+            font-size: 24px; /* Ajuster la taille des paragraphes pour mieux s'adapter à la largeur */
             color: #666;
-            font-size: 22px; /* Augmenter la taille de la description des événements */
+            line-height: 1.6; /* Améliorer la lisibilité en augmentant l'espacement entre les lignes */
+            margin-bottom: 10px;
         }
 
         .footer {
@@ -163,7 +153,6 @@
         </header>
 
         <div class="timeline">
-
             <!-- Activité 1 -->
             <div class="timeline-item">
                 <div class="time">15:00</div>
@@ -173,7 +162,6 @@
                     <p>Participants : Monsieur le Directeur Général de l'API, Monsieur le Sous-Directeur des Affaires Générales, Quelques Membres du Service Financier.</p>
                 </div>
             </div>
-
         </div>
 
         <div class="footer">
