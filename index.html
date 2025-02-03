@@ -9,69 +9,81 @@
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             color: #333;
         }
 
         header {
             text-align: center;
             margin-bottom: 30px;
+            background-color: #007BFF;
+            color: white;
+            padding: 20px 0;
         }
 
         h1 {
-            color: #007BFF;
             font-size: 36px;
             margin: 0;
         }
 
         h2 {
-            color: #007BFF;
             font-size: 18px;
             margin-top: 5px;
         }
 
         .time-date {
-            color: #555;
+            color: white;
             font-size: 16px;
         }
 
         .timeline {
-            max-width: 800px;
-            margin: auto;
+            max-width: 100%;
+            margin: 0;
             padding: 10px;
+            box-sizing: border-box;
         }
 
         .timeline-item {
             background: white;
             margin: 10px 0;
-            padding: 15px;
+            padding: 30px;
             border-left: 5px solid #007BFF;
             position: relative;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
         }
 
         .time {
-            font-size: 18px;
+            font-size: 22px;
             font-weight: bold;
             color: #007BFF;
+            margin-bottom: 15px;
         }
 
         .event-content h3 {
             margin: 0;
             color: #333;
-            font-size: 20px;
+            font-size: 24px;
+            margin-bottom: 10px;
         }
 
         .event-content p {
             margin: 5px 0;
             color: #666;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         .footer {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 50px;
             color: #007BFF;
+            padding: 20px 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Pour donner de l'espace entre les activités et que cela soit bien espacé */
+        .timeline-item + .timeline-item {
+            margin-top: 40px;
         }
     </style>
 </head>
