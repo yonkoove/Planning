@@ -85,18 +85,20 @@
 
         .timeline-item {
     background: white;
-    padding: 40px; /* Augmenter le padding pour plus d'espace dans chaque élément */
+    padding: 40px; /* Augmenter le padding si nécessaire */
     border-left: 5px solid #007BFF;
     position: relative;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    width: 100%; /* Ajustez la largeur à 100% pour utiliser toute la largeur disponible */
-    max-width: 650px; /* Si vous voulez limiter la largeur maximale */
+    width: 100vw; /* La largeur est maintenant égale à la largeur de la fenêtre */
+    margin-left: -20px; /* Marge négative pour étirer l'élément vers la gauche */
+    margin-right: -20px; /* Marge négative pour étirer l'élément vers la droite */
     flex-shrink: 0;
     border-radius: 15px;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.8s forwards;
 }
+
 
 
         .timeline-item:nth-child(odd) {
